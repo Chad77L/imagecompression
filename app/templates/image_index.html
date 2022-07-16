@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Image Compression Algorithms</title>
+  </head>
+  <body>
+    <h1>Image Compression Algorithms</h1>
+    <p>
+      This application performs 3 algorithms for Image Compression:
+       <ol>
+          <li>K-means Algorithm</li>
+          <li>DWT Compression</li>
+          <li>FFT Compression</li>
+          <li>SVD Compression</li>
+      </ol> 
+    </p>
+
+    {% if error %}
+        <h2>Please upload an image  </h2>
+        <h4  style="color:red;">{{ error }}  {{na}}</h4>
+        {% else %}
+        <h2>Please upload an image </h2>
+        {% endif %}
+
+    
+    <form action = "http://localhost:5000/uploader" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit" value="Submit"/>
+      </form>
+  </body>
+
+</html>

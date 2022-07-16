@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Image Compression Algorithms</title>
+  </head>
+  <body>
+    <h1>Image Compression Algorithms</h1>
+    <p>
+      This application performs 3 algorithms for Image Compression:
+       <ol>
+          <li>K-means Algorithm</li>
+          <li>DWT Compression</li>
+          <li>FFT Compression</li>
+          <li>SVD Compression</li>
+      </ol> 
+    </p>
+
+   
+        <h2>Please upload an image </h2>
+
+    <form action = "http://localhost:5000/uploader" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit" value="Submit"/>
+    </form>
+<figure>
+    <img src="{{ url_for('upload', filename='org_img.png') }}" style="width: 500px">
+    <figcaption>Original Image in grayscale <br>
+      Shape: {{org_img_size[1]}}x{{org_img_size[0]}} <br>
+      Size on disk: {{size_on_disk}} KB</figcaption>
+</figure>
+<figure>
+    <img src="{{ url_for('upload', filename='thuattoan1.png') }}" style="width: 500px">
+    <figcaption>Compression using K-means Algorithm<br>
+      Size on disk: {{thuattoan1_size}} KB <br>
+      Mean Square Error: {{rms1}}
+    </figcaption>
+
+</figure>
+<figure>
+    <img src="{{ url_for('upload', filename='thuattoan2.png') }}" style="width: 500px">
+    <figcaption>Compression using DWT Compressor <br>
+      Size on disk: {{thuattoan2_size}} KB<br>
+      Mean Square Error: {{rms2}}
+      </figcaption>
+</figure>
+<figure>
+    <img src="{{ url_for('upload', filename='thuattoan3.png') }}" style="width: 500px">
+    <figcaption>Compression using FFT Compressor <br>
+      Size on disk: {{thuattoan3_size}} KB<br>
+      Mean Square Error: {{rms3}}
+    </figcaption>
+
+</figure>
+<figure>
+    <img src="{{ url_for('upload', filename='thuattoan4.png') }}" style="width: 500px">
+    <figcaption>Compression using SVD Compressor <br>
+      Size on disk: {{thuattoan4_size}} KB<br>
+      Mean Square Error: {{rms4}}</figcaption>
+</figure>
+      
+    
+
+  </body>
+</html>
